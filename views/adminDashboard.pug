@@ -1,0 +1,38 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Dashboard - Kindergarten System
+link(rel="stylesheet", href="/css/admin.css")
+.sidebar
+  h2(style="text-align: center; padding: 15px;") Kindergarten
+  ul
+    li.active 
+        a(href="#") Dashboard
+    li(onclick="")
+        a(href="/addition") Register Child
+    li(onclick="")
+        a(href="/childrenslist") Children List
+    li
+        a(href="#") Reports
+    li
+        a(href="#") Settings
+    li
+        a(href="/") Logout
+.main-content
+  .header
+    h1 Dashboard
+    div Welcome, Admin!
+  .stats
+    .stat-card
+      h3 Total Children
+      p#totalChildren 100+
+    .stat-card
+      h3 New This Month
+      p#newChildren 50+
+    .stat-card
+      h3 Classes
+      p 3
+    .stat-card
+      h3 Upcoming Events
+      p 2
+  .recent-activity
+    h2 Recent Activity

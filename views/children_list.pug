@@ -1,0 +1,52 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Children List - Kindergarten System
+link(rel="stylesheet", href="/css/childrenlist.css")
+.sidebar
+  h2(style="text-align: center; padding: 15px;") Kindergarten
+  ul
+    li.active 
+        a(href="#") Dashboard
+    li(onclick="")
+        a(href="/addition") Register Child
+    li(onclick="")
+        a(href="/childrenslist") Children List
+    li
+        a(href="#") Reports
+    li
+        a(href="#") Settings
+    li
+        a(href="#") Logout
+.main-content
+  .header
+    h1 Children List
+  .search-bar
+    input(type="text", placeholder="Search children...")
+    button Search
+  table
+    thead
+      tr
+        th First Name
+        th Last Name
+        th Age
+        th Class
+        th Parent name
+        th Residence
+        th Update
+        th Delete
+  tbody
+   if children && children.length
+     each items in children
+      tr
+        td #{items.firstname}
+        td #{items.lastname}
+        td #{items.age}
+        td #{items.class}
+        td #{items.parentname}
+        td #{items.residence}
+        td
+          a.button.action-btn.edit-btn(href="/updatechild/" + items._id) Update
+        td  
+          form(action="/deletechild" method="POST")
+            input(type="hidden" name="id" value=items._id)
+            button.action-btn.delete-btn(type="submit") Delete
