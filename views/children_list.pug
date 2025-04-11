@@ -2,27 +2,52 @@ meta(charset="UTF-8")
 meta(name="viewport", content="width=device-width,initial-scale=1")
 title Children List - Kindergarten System
 link(rel="stylesheet", href="/css/childrenlist.css")
+link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+
 .sidebar
-  h2(style="text-align: center; padding: 15px;") Kindergarten
-  ul
-    li.active 
-        a(href="#") Dashboard
-    li(onclick="")
-        a(href="/addition") Register Child
-    li(onclick="")
-        a(href="/childrenslist") Children List
+  .sidebar-header
+    h2 Kindergarten System
+  ul.sidebar-menu
     li
-        a(href="#") Reports
+      a(href="/admin")
+        i.fas.fa-home
+        span Dashboard
     li
-        a(href="#") Settings
+      a(href="/addition")
+        i.fas.fa-user-plus
+        span Register Child
     li
-        a(href="#") Logout
+      a(href="/childrenslist").active
+        i.fas.fa-users
+        span Children List
+    li
+      a(href="/attendance")
+        i.fas.fa-clipboard-check
+        span Attendance
+    li
+      a(href="/reports")
+        i.fas.fa-chart-bar
+        span Reports
+    li
+      a(href="/settings")
+        i.fas.fa-cog
+        span Settings
+    li
+      a(href="/logout")
+        i.fas.fa-sign-out-alt
+        span Logout
+
 .main-content
   .header
     h1 Children List
+    a.add-child-btn(href="/addition")
+      i.fas.fa-plus
+      | Add Child
   .search-bar
     input(type="text", placeholder="Search children...")
-    button Search
+    button
+      i.fas.fa-search
+      | Search
   table
     thead
       tr
@@ -30,23 +55,28 @@ link(rel="stylesheet", href="/css/childrenlist.css")
         th Last Name
         th Age
         th Class
-        th Parent name
+        th Parent Name
         th Residence
-        th Update
-        th Delete
-  tbody
-   if children && children.length
-     each items in children
-      tr
-        td #{items.firstname}
-        td #{items.lastname}
-        td #{items.age}
-        td #{items.class}
-        td #{items.parentname}
-        td #{items.residence}
-        td
-          a.button.action-btn.edit-btn(href="/updatechild/" + items._id) Update
-        td  
-          form(action="/deletechild" method="POST")
-            input(type="hidden" name="id" value=items._id)
-            button.action-btn.delete-btn(type="submit") Delete
+        th Actions
+    tbody
+      if childrens && childrens.length > 0
+        each child in childrens
+          tr
+            td= child.firstname
+            td= child.lastname
+            td= child.age
+            td= child.class
+            td= child.parentname
+            td= child.residence
+            td
+              a.action-btn.edit-btn(href="/updatechild/" + child._id)
+                i.fas.fa-edit
+                | Update
+              form(action="/deletechild", method="POST", style="display: inline;")
+                input(type="hidden", name="id", value=child._id)
+                button.action-btn.delete-btn(type="submit")
+                  i.fas.fa-trash-alt
+                  | Delete
+      else
+        tr
+          td(colspan="7", style="text-align: center;") No children found
