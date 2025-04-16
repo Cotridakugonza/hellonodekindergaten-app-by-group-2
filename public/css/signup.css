@@ -1,39 +1,57 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-  }
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  h1 {
-    color: #2e8b57;
-    text-align: center;
-  }
-  .form-group {
-    margin-bottom: 15px;
-  }
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  input,
-  select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  button {
-    background-color: #2e8b57;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: #3cb371;
-  }
+body{
+  background: linear-gradient( rgb(41, 212, 41),rgb(14, 223, 63),lime);
+}
+
+   body {
+      position: relative;
+      height: 180vh;
+      align-items: center;
+     }
+     #form {
+      position: absolute; /*this command makes the box smaller   */
+      background-color: hsla(0, 0%, 10%, 0.1);
+      border: 2px solid var(--white-color);
+      margin-left: 46%;
+      margin-top: 6.59%;
+      padding: 19px;
+      border-radius: 0rem;
+      backdrop-filter: blur(8px);
+      /* align-content: center;
+      justify-content: center; */
+      padding-bottom: 20px
+      
+     }
+     a{
+       align-content: center;
+       list-style: none;
+       text-decoration: none;
+       color: aliceblue;
+       display: flex;
+       float: inline-end;
+     }
+    button{
+     margin-left: 32%;
+     margin-right: 1px;
+     background-color: black;
+     color: white;
+     padding: 6px;
+     border-radius: 50px;
+     border: 1px,solid,black;
+    }
+    
+#image{
+height: 499px;
+width: 30%;
+float:left;  
+margin-top:80px;
+margin-left:5.59%;
+}
+
+input{
+  border: 1px,solid,white;
+  color: aliceblue;  
+  border-radius: 3px;
+  background: transparent;
+ 
+ 
+}

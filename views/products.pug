@@ -1,0 +1,93 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Karibu Groceries Ltd -Registerproduce
+link(rel="stylesheet", href="/css/registerproduce.css")
+link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+
+//- Navigation Sidebar
+.sidebar
+  .sidebar-header
+    h2 Karibu Groceries Ltd
+  ul.sidebar-menu
+    li
+      a(href="/admin")
+        i.fas.fa-home
+        span Dashboard
+    li
+      a(href="/addproduce").active
+        i.fas.fa-user-plus
+        span Register Produce
+    li
+      a(href="/Producelist")
+        i.fas.fa-users
+        span Produce List
+    li
+      a(href="/Sales")
+        i.fas.fa-clipboard-check
+        span Sales
+    li
+      a(href="/reports")
+        i.fas.fa-chart-bar
+        span Reports
+    li
+      a(href="/settings")
+        i.fas.fa-cog
+        span Settings
+    li
+      a(href="/")
+        i.fas.fa-sign-out-alt
+        span Logout
+
+//- Main Content Area
+.main-content
+  .container
+    h1 Register Produce
+    form(method="POST", action="/submit-produce")
+  h2 Produce Procurement Form
+
+  //- Name of Produce
+  label(for="produceName") Name of Produce:
+  input#produceName(type="text", name="produceName", required)
+
+  //- Type of Produce
+  label(for="produceType") Type of Produce:
+  input#produceType(type="text", name="produceType", pattern="[A-Za-z]{2,}", title="Alphabet only, min 2 characters", required)
+
+  //- Date
+  label(for="produceDate") Date:
+  input#produceDate(type="date", name="produceDate", required)
+
+  //- Time of Produce
+  label(for="produceTime") Time of Produce:
+  input#produceTime(type="time", name="produceTime", required)
+
+  //- Tonnage in Kgs
+  label(for="tonnage") Tonnage (kgs):
+  input#tonnage(type="number", name="tonnage", min="100", title="Minimum 3 digits", required)
+
+  //- Cost in UgX
+  label(for="cost") Cost (UgX):
+  input#cost(type="number", name="cost", min="10000", title="Minimum 5 digits", required)
+
+  //- Name of Dealer
+  label(for="dealerName") Dealer Name:
+  input#dealerName(type="text", name="dealerName", pattern="[A-Za-z0-9]{2,}", title="Alphanumeric, at least 2 characters", required)
+
+  //- Branch Name (Assuming a dropdown of known branches)
+  label(for="branch") Branch Name:
+  select#branch(name="branch", required)
+    option(value="") -- Select Branch --
+    option(value="Matugga") Matugga
+    option(value="Maganjo") Maganjo
+   
+
+  //- Contact
+  label(for="contact") Contact (Phone):
+  input#contact(type="tel", name="contact", pattern="^\+256\d{9}$", title="Format: +256XXXXXXXXX", required)
+
+  //- Price to be Sold At
+  label(for="sellPrice") Price to be Sold At (UgX):
+  input#sellPrice(type="number", name="sellPrice", min="1", required)
+
+  //- Submit Button
+  button(type="submit") Submit

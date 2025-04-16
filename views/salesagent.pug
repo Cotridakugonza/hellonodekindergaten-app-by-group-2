@@ -1,0 +1,46 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title SALES AGENT DASHBOARD
+  link(rel='stylesheet', href='/css/products.css')
+h2 SALES AGENT DASHBOARD
+form#salesform(action='/salesagentdash' method='post')
+  label(for='') Sales Agent Name:
+  input#producename(type='text'name='salesagentname')
+  br
+  br
+  label(for='') Buyer&apos;s name: 
+  input(type='text', id='reg number' name="buyersname")
+  br
+  br
+  label(for='') Item bought:
+  input#stock(type='text' name="itembought")
+  br
+  br
+  label(for='') Unit cost:
+  input(type='number', id='price' name='unitcost')
+  br
+  br
+  label(for='') Quantity:
+  input#restock(type='number' name='quantity')
+  br
+  br
+  label(for='') Amount paid:
+  input#restock(type='number' name='amount paid')
+  br
+  br
+  label(for='') Total:
+  input(type='number' name='total')
+  br
+  br
+  label(for='') Balance:
+  input(type='number' name='balance' )
+  br
+  br
+  label(for='') Date of transaction:
+  input#restock(type='date' name='date of transaction')
+  br
+  br
+   //- Submit Button
+  button(type="submit") Submit

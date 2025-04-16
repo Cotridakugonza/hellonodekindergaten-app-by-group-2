@@ -1,0 +1,64 @@
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Update Produce - KGL
+link(rel="stylesheet", href="/css/registerproduce.css")
+link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css")
+
+.sidebar
+  .sidebar-header
+    h2 KGL System
+  ul.sidebar-menu
+    li
+      a(href="/admin")
+        i.fas.fa-home
+        span Dashboard
+    li
+      a(href="/addproduce")
+        i.fas.fa-user-plus
+        span Register Child
+    li
+      a(href="/productslist").active
+        i.fas.fa-users
+        span products List
+    li
+      a(href="/Sales")
+        i.fas.fa-clipboard-check
+        span Sales
+    li
+      a(href="/reports")
+        i.fas.fa-chart-bar
+        span Reports
+    li
+      a(href="/settings")
+        i.fas.fa-cog
+        span Settings
+    li
+      a(href="/logout")
+        i.fas.fa-sign-out-alt
+        span Logout
+
+.main-content
+  .container
+    h1 Update Child Details
+    form#childRegistrationForm(action='/updateproduce?id='+product._id method='post')
+      .form-row
+        .form-group
+          label(for='produce name ') Produce Name:
+          input#producename.tableInput( name='producename' value = product.producename)
+          label(for='Quantity of stock') Quantity in stock:
+          input#stock.tableInput( name='stockavailable' value = product.stockavailable)
+       .form-group
+          label(for='Restock quantities') Quantity Re-stocked:
+          input#restock.tableInput( name='restock' value = product.restock)
+          label(for='Dealer Re-stocked ') Dealer Re-stocked:
+          input#producename.tableInput( name='dealersname' value = product.dealersname)
+        .form-group
+            label(for='date of restock') Date of Re-stock:
+           input.tableInput( id='date of restock'  name='dateofrestock' value = product.dateofrestock disabled)
+        .form-actions
+        button.submit-btn(type="submit")
+          i.fas.fa-save
+          | Update Produce Details
+        a.cancel-btn(href="/productslist")
+          i.fas.fa-times
+          | Cancel
