@@ -1,48 +1,30 @@
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Document
-  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous')
-  link(rel='stylesheet' href='/css/signup.css')
-#divig.container
-  img(src='/imgs/newlogo.png' alt='' style='height: 20%;width: 10%;float:left; position: relative;')
-  img#image(src='/imgs/kglbackdrop.jpg' alt='' )
-#form.col
-  h2(style='padding-top: 10px;') Sign Up
-  a(href='/login') Login
-  p Already a member ?
-  form(action='/signingup' method='post' onsubmit="formValidate()")
-    .mb-3
-      label.form-label(for='exampleInputPassword1') Full Name:
-      input#fullname(type='text' name='fullname')
-      span#nameErrorMessage.nameErrorMessage
-    .mb-3
-      label.form-label(for='exampleInputEmail1') Email address:
-      input#email(type='email' name='email' aria-describedby='emailHelp')
-      #email.form-text We&apos;ll never share your email with anyone else.
-      span#emailErrorMessage.emailErrorMessage
-    .mb-3
-      label.form-label(for='exampleInputPassword1') Branch name:
-      select#branch(type='text' name='branch')
-        option(value='') --Select Branch--
-        option(value='matugga') Matugga
-        option(value='maganjo') Maganjo
-        span#branchErrorMessage.branchErrorMessage
-    .mb-3
-      label.form-label(for='exampleInputPassword1') Role:
-      select#role(type='text' name='role' )
-        option(value='') --Select Role--
-        option(value='manager') Manager
-        option(value='salesagent') Sales Agent
-        option(value='director') Director
-        span#roleErrorMessage.roleErrorMessage
-    .mb-3
-      label.form-label(for='exampleInputPassword1') Password:
-      input#password(type='password' name='password')
-      span#passwardErrorMessage.errorMessage
-    .mb-3.form-check
-      input#exampleCheck1.form-check-input(type='checkbox')
-      label.form-check-label(for='exampleCheck1') Remember me
-    button#submit-btn(type='submit') Sign Up
-script(src='.js/signup.js')
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz' crossorigin='anonymous')
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Kindergarten System - Login
+link(rel="stylesheet", href="/css/login.css")
+.login-container
+  .login-header
+    h1 Kindergarten System
+    p Welcome back! Please login to continue
+  .login-tabs
+    button.tab-btn.active Login    
+  .tab-content.active#admin-login
+    form.login-form#adminForm(action="/login" method="post")
+      .form-group
+        label(for="admin-email") Email Address
+        input#admin-email(type="email", placeholder="Enter your email", name="email" )
+        //- .error-message#admin-email-error Please enter a valid email address
+      .form-group
+        label(for="admin-password") Password
+        input#admin-password(type="password", placeholder="Enter your password", name="password")
+        //- .error-message#admin-password-error Password must be at least 6 characters
+      .remember-forgot
+        .remember-me
+          //- input#admin-remember(type="checkbox")
+          //- label(for="admin-remember") Remember me
+        a.forgot-password(href="#") Forgot password?
+      button.login-btn(type="submit") Login   
+  .login-footer
+    | 
+    p Don't have an account? 
+    a(href="/signingup") Sign up here
