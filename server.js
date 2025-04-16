@@ -20,7 +20,7 @@ const app = express();
 
 const PORT = 3000;
 
-const productsRoutes = require("./routes/productsRoutes");
+const additionRoutes = require("./routes/additionRoutes");
 
 const authRoutes = require("./routes/authRoutes");
 
@@ -76,7 +76,7 @@ passport.deserializeUser(Signup.deserializeUser());
 
 //routes
 
-app.use("/", productsRoutes);
+app.use("/", additionRoutes);
 
 app.use("/", authRoutes);
 
